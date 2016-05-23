@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>voorbeeld_9</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Steven" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+		<style>
+			thead {
+				background-color: #444;
+				color: #FFF;
+			}
+			.sorteer {
+				cursor: pointer;
+			}
+			.gesorteerd {
+				background-color: #0CE;
+			}
+		</style>
+
+		<script src="../js/jquery-1.12.1.min.js"></script>
+        <script src="../js/jquery-ui.js"></script>
+		<script>
+            "use strict";
+            /*global $, jQuery */
+			(function ($) {
+				$.fn.toonLinkInformatie = function (options) {
+					
+					// vul de standaardwaarden in en vul aan met de options
+					var settings = $.extend({
+						"fontsize" : "auto",
+						"color" : "blue",
+						"fontfamily" : "arial, helvetica, sans-serif"
+					}, options);
+					
+					return this.filter("a[href^='http']").each(function () {
+						var adres = $(this).attr("href"),
+                            info = $(this).after(" <span>(" + adres.replace('http://', "") + ")<\/span>");
+						$(info).next().css("font-size", settings.fontsize);
+						$(info).next().css("color", settings.color);
+						$(info).next().css("font-family", settings.fontfamily);
+					});
+				};
+			})(jQuery);
+
+			$(document).ready(function () {
+				// het doorgeven van de parameters zelf
+				$("a").toonLinkInformatie({
+					"fontsize" : "11px",
+					"color" : "orange"
+					// als we geen 'fontfamily' mee opgeven, wordt de 
+					// default gebruikt van hierboven
+				});
+
+			});
+
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>voorbeeld_9</h1>
+			</header>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+				</p>
+				<p>
+					<a href="/contact">Contact</a>
+				</p>
+			</nav>
+
+			<div>
+				<ul>
+					<li><a href="/">start</a></li>
+					<li><a href="/contact">neem contact op</a></li>
+					<li><a href="http://www.buienradar.nl">het weer</a></li>
+					<li><a href="http://www.deredactie.be">het nieuws</a></li>
+					<li><a href="/over">over deze website</a></li>
+				</ul>
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Steven
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

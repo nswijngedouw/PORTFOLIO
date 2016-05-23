@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>les 7 : voorbeeld 12</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Steven" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<script src="../js/jquery-1.12.1.min.js"></script>
+        
+	
+		<link href="css/vader/jquery-ui-1.10.2.custom.min.css" rel="stylesheet" type="text/css"/>
+		<script src="../js/jquery-ui.js"></script>
+		
+		
+
+		<script >
+            "use strict";
+            /*global $ */
+			$(document).ready(function () {
+				// alle buttons
+				$("button").button();
+				// specifieke iconen toevoegen :
+				$("button[type=submit]").button({icons : {primary : "ui-icon-disk"}});
+				$("button[type=reset]").button({icons : {primary : "ui-icon-cancel"}});
+			});
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>oefening 6.3</h1>
+			</header>
+			<nav>
+				
+			</nav>
+
+			<div>
+
+				<form>
+					<button type="submit">Opslaan</button>
+					<button type="reset">Annuleren</button>
+				</form>
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Steven
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

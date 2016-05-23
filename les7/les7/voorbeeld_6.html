@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+		<title>voorbeeld_6</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Steven" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+		<style>
+			thead {
+				background-color: #444;
+				color: #FFF;
+			}
+			.sorteer {
+				cursor: pointer;
+			}
+
+		</style>
+		<script src="../js/jquery-1.12.1.min.js"></script>
+
+		<script>
+            "use strict";
+            /*global $ */
+			$.fn.kleurRijen = function () {
+				// kleur de rijen afwisselend grijs
+				// nu als een plug-in
+				// let op het keyword 'this'
+				$("tbody tr:odd", this).css("background-color", "#CCC");
+				$("tbody tr:even", this).css("background-color", "#EEE");
+				return this;
+			};
+	
+			$(document).ready(function () {
+				
+				var tabel = $("#weerdata");
+				tabel.kleurRijen();
+				
+				$('th', tabel).each(function (columnIndex) {
+					if ($(this).is('.sorteer')) {
+						// neem een referentie naar de kolom
+						// we hebben deze nodig om vast te kunnen stellen of
+						// de waarde numeriek of alfanumeriek gesorteerd moeten worden
+						var col = this;
+						
+						$(this).click(function () {
+							var rijen = tabel.find('tbody > tr');
+							
+							// genereer de sorteersleutels
+							$.each(rijen, function (index, rij) {
+								if ($(col).is('.alfabet')) {
+									// alfabetisch sorteren
+									rij.sortKey = $(rij).children('td').eq(columnIndex).text().toUpperCase();
+								}
+								if ($(col).is('.getal')) {
+									// numeriek sorteren
+									var waarde = $(rij).children('td').eq(columnIndex).text().toUpperCase();
+									// niet als tekst, maar als een getal in de sortKey stoppen!
+									rij.sortKey = parseFloat(waarde);
+								}
+
+								
+							});
+							
+							rijen.sort(function (a, b) {
+								// vergelijk aan de hand van de sortKey van de elementen
+								if (a.sortKey < b.sortKey) { return -1; }
+								if (a.sortKey > b.sortKey) { return 1; }
+								return 0;
+							});
+
+							$.each(rijen, function (index, rij) {
+								tabel.children('tbody').append(rij);
+								rij.sortKey = null;
+								// sortKey hoeft niet op null gezet te worden,
+								// maar het kan zeker geen kwaad om zaken die je
+								// niet meer nodig hebt op te ruimen
+							});
+							tabel.kleurRijen();
+						});
+					}
+				});
+			});
+			
+			
+
+		</script>
+	</head>
+
+	<body>
+		<div>
+			<header>
+				<h1>voorbeeld_6</h1>
+			</header>
+			<nav>
+				<p>
+					<a href="/">Home</a>
+				</p>
+				<p>
+					<a href="/contact">Contact</a>
+				</p>
+			</nav>
+
+			<div>
+				<table id="weerdata">
+					<thead>
+						<tr>
+							<th class='sorteer alfabet'>plaats</th>
+							<th class='sorteer getal'>temperatuur</th>
+							<th class='sorteer alfabet'>wind</th>
+							<th class='sorteer getal'>vocht (%)</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Arnhem</td><td>10.5</td><td>W 2</td><td>97</td>
+						</tr>
+						<tr>
+							<td>De Bilt</td><td>12.9</td><td>WNW 3</td><td>88</td>
+						</tr>
+						<tr>
+							<td>Groningen</td><td>9.9</td><td>NNW 2</td><td>91</td>
+						</tr>
+						<tr>
+							<td>Rotterdam</td><td>12.6</td><td>NNW 3</td><td>93</td>
+						</tr>
+						<tr>
+							<td>Vlissingen</td><td>8.0</td><td>WZW 3</td><td>89</td>
+						</tr>
+						<tr>
+							<td>Maastricht</td><td>9.5</td><td>WZW 2</td><td>70</td>
+						</tr>
+
+					</tbody>
+
+				</table>
+			</div>
+
+			<footer>
+				<p>
+					&copy; Copyright  by Steven
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

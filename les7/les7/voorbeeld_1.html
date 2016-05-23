@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+
+  <!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame 
+       Remove this if you use the .htaccess -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+  <title>voorbeeld_1</title>
+  <meta name="description" content="" />
+  <meta name="author" content="Steven" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  
+  
+  <script src="../js/jquery-1.12.1.min.js"> </script>
+  
+  <script>
+      "use strict";
+      /*global $ */
+      $(document).ready(function () {
+          // deze functies zullen niet correct werken zolang er geen pagina
+          // weer.aspx bestaat die deze acties kan opvangen
+          $('#plaats a').click(function () {
+              $("#weerdata").load('weer.aspx?sort=plaats&type=ajax');
+              return false;
+          });
+          
+          $('#temperatuur a').click(function () {
+              $("#weerdata").load('weer.aspx?sort=temperatuur&type=ajax');
+              return false;
+          });
+          
+          $('#wind a').click(function () {
+              $("#weerdata").load('weer.aspx?sort=wind&type=ajax');
+              return false;
+          });
+          
+          $('#vochtigheid a').click(function () {
+              $("#weerdata").load('weer.aspx?sort=vochtigheid&type=ajax');
+              return false;
+          });
+      });
+  	
+  	
+  </script>
+</head>
+
+<body>
+  <div>
+    <header>
+      <h1>voorbeeld_1</h1>
+    </header>
+    <nav>
+      <p><a href="/">Home</a></p>
+      <p><a href="/contact">Contact</a></p>
+    </nav>
+
+    <div>
+      <table id="weerdata">
+      	<tr>
+      		<th id="plaats">
+      			<a href="#">Plaats</a>
+      		</th>
+      		<th id="temperatuur">
+      			<a href="#">Temperatuur</a>
+      		</th>
+      		<th id="wind">
+      			<a href="#">Wind</a>
+      		</th>
+      		<th id="vochtigheid">
+      			<a href="#">Vochtigheid</a>
+      		</th>
+      	</tr>
+      	
+      </table>
+    </div>
+
+    <footer>
+     <p>&copy; Copyright  by Steven</p>
+    </footer>
+  </div>
+</body>
+</html>
