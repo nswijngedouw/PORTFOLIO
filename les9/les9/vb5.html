@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="nl">
+	<head>
+		<meta charset="utf-8" />
+		<title>Les 9 : voorbeeld 5</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" >
+      <script src="http://code.jquery.com/jquery-1.12.1.min.js"> </script>
+      <script type="text/javascript" src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"> </script>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		
+	</head>
+
+	<body>
+		<div data-role="page" id="home">
+			<div data-role="header">
+				<h1>Pagina 1</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					<a href="#pagina2" data-transition="slide" data-role="button">slide naar pagina 2</a><br>
+					<a href="#pagina3" data-transition="slideup" data-role="button">slideup naar pagina 3</a><br>
+					<a href="#pagina4" data-transition="slidedown" data-role="button">slidedown naar pagina 4</a><br>
+					<a href="#pagina5" data-transition="pop" data-role="button">pop naar pagina 5</a><br>
+					<a href="#pagina6" data-transition="fade" data-role="button">fade naar pagina 6</a><br>
+					<a href="#pagina7" data-transition="flip" data-role="button">flip naar pagina 7</a><br>
+				</p>
+				<p> <a href="#over" data-transition="pop" data-rel="dialog" data-role="button">Over deze app</a></p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="over">
+			<div data-role="header">
+				<h1>Over deze app</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Meer informatie... <a href="#home" data-role="button">terug naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		
+		<div data-role="page" id="pagina2">
+			<div data-role="header">
+				<h1>Pagina 2</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de tweede pagina.
+					<a href="#home" data-transition="slide" data-role="button">slide naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="pagina3">
+			<div data-role="header">
+				<h1>Pagina 3</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de 3e pagina.
+					<a href="#home" data-transition="slidedown" data-role="button">slidedown naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="pagina4">
+			<div data-role="header">
+				<h1>Pagina 4</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de 4e pagina.
+					<a href="#home" data-transition="slideup" data-role="button">slideup naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="pagina5">
+			<div data-role="header">
+				<h1>Pagina 5</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de 5e pagina.
+					<a href="#home" data-transition="pop" data-role="button">pop naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="pagina6">
+			<div data-role="header">
+				<h1>Pagina 6</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de 6e pagina.
+					<a href="#home" data-transition="fade" data-role="button">Terug naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+		<div data-role="page" id="pagina7">
+			<div data-role="header">
+				<h1>Pagina 7</h1>
+			</div>
+			<div data-role="content"> 
+				<p>
+					Dit is de 7e pagina.
+					<a href="#home" data-transition="flip" data-role="button">Terug naar start</a>
+				</p>
+			</div>
+			<div data-role="footer">
+				<h4>Voettekst</h4> 
+			</div>
+
+		</div>
+		
+	</body>
+</html>
