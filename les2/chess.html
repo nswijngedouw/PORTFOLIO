@@ -1,0 +1,46 @@
+<DOCTYPE html>
+    <html>
+
+    <head>
+        <style>
+            .white {
+                width: 20px;
+                height: 20px;
+                color: white
+            }
+            .black {
+                width: 20px;
+                height: 20px;
+                color: black;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <script type="text/javascript">
+            var tabel = "<table> ";
+            for (var i = 1; i < 9; i++) {
+                tabel = tabel + "<tr>";
+                for (var j = 1; j < 9; j++) {
+                    tabel = tabel + "<td ";
+                    if (i % 2 == j % 2) {
+                        tabel =tabel + "class='white'";
+                    } else {
+                        tabel =tabel + "class='black'";
+                    }
+                    tabel = tabel + "></td>;
+                }
+                tabel= tabel+" </tr>";
+            }
+            tabel ="</table>";
+            document.body.appendChild(tabel);
+        </script>
+
+    </body>
+
+
+    </html>
+
+
+
